@@ -1,2 +1,4 @@
 # tikeet
-Selling tickets like it's Tabaski
+A simple ticket selling application.
+
+
