@@ -1,1 +1,1 @@
-web: tikeet
+web: tikeet -port=$PORT
