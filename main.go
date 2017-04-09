@@ -18,5 +18,5 @@ func main() {
 		fmt.Fprintln(w, "<h1>Aucun ticket disponible à la vente</h1>")
 	})
 	log.Printf("Démarrage du serveur sur le port %s\n", port)
-	log.Fatal(http.ListenAndServe("127.0.0.1:"+port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
