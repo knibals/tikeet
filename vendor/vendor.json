@@ -1,6 +1,22 @@
 {
+	"comment": "",
 	"goVersion": "go1.8",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"checksumSHA1": "DLcP1TBsvOvfOIwUagfE1dOdPG4=",
+			"path": "github.com/boltdb/bolt",
+			"revision": "583e8937c61f1af6513608ccc75c97b6abdf4ff9",
+			"revisionTime": "2016-08-18T17:01:52Z",
+			"version": "=v1.3.0",
+			"versionExact": "v1.3.0"
+		},
+		{
+			"checksumSHA1": "ArDa4bMPKzhiS1I7iioemBwZ6tE=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "f3918c30c5c2cb527c0b071a27c35120a6c0719a",
+			"revisionTime": "2017-04-05T16:58:12Z"
+		}
+	],
 	"rootPath": "github.com/knibals/tikeet"
 }
