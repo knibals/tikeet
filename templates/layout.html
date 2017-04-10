@@ -1,0 +1,13 @@
+{{ define "layout" }}
+<!doctype html>
+<html>
+	<head>
+		<title>{{ template "title" . }}</title>
+	</head>
+	<body>
+		<h1>LAYOUT.HTML</h1>
+
+		{{ template "content" . }}
+	</body>
+</html>
+{{ end }}
