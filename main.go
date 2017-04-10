@@ -36,6 +36,6 @@ func homepage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	err := tmpl["home"].ExecuteTemplate(w, "layout", test)
 	if err != nil {
-		log.Fatal("Erreur de chargement du template")
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
