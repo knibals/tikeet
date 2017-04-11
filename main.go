@@ -24,18 +24,33 @@ func main() {
 		log.Fatal("La variable \"PORT\" ne peut pas être vide...")
 	}
 	http.HandleFunc("/", homepage)
+	http.HandleFunc("/parseform", parseForm)
 	log.Printf("Démarrage du serveur sur le port %s\n", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 func homepage(w http.ResponseWriter, r *http.Request) {
-	test := Page{
+	page := Page{
 		Title:   "Tikeeet, votre partenaire events",
 		Content: "Dynamique content from a database or another content repository...",
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	err := tmpl["home"].ExecuteTemplate(w, "layout", test)
+	err := tmpl["home"].ExecuteTemplate(w, "layout", page)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
+}
+
+func parseForm(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		log.Printf("Erreur de traitement du formulaire: %v\n", err)
+	}
+	event := Event{
+		about:       r.FormValue("event_name"),
+		eventStatus: r.FormValue("event_status"),
+		location:    r.FormValue("event_location"),
+	}
+	log.Printf("%v\n", event)
+	http.Redirect(w, r, "/", http.StatusPermanentRedirect)
 }

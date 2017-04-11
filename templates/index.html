@@ -1,5 +1,22 @@
 {{ define "content" }}
 {{ .Content  }}
+<form action="/parseform" method="post">
+	<input type="text" name="event_name" placeholder="Nom de l'évènement" required autofocus />
+	<input type="text" list="regions" name="event_location" required>
+	<datalist id="regions">
+		<option value="Dakar">
+		<option value="Thies">
+		<option value="Louga">
+	</datalist>
+	<input type="text" list="status" name="event_status" required>
+	<datalist id="status">
+		<option value="Annulé">
+		<option value="Reporté">
+		<option value="Reprogrammé">
+		<option value="Programmé">
+	</datalist>
+	<input type="submit" value="Envoyer" />
+</form>
 {{ end }}
 
 
